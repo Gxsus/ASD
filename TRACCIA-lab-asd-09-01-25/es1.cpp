@@ -6,15 +6,8 @@
 //Es 1
 //Ritorna il numero di coppie nell'insieme
 unsigned int nbPairs(const set_list& li){
-  set_list curr = li;
   unsigned int ris = 0;
-  while(curr){
-    pair_list curr1 = curr->pairs;
-    while(curr1){
-      ris++;
-      curr1 = curr1->next_pair;
-    }
-    curr = curr->next;
-  }
+  for(set_list tmp = li; tmp != nullptr; tmp = tmp -> next)
+    for(pair_list pairs = tmp -> pairs; pairs != nullptr; pairs = pairs -> next_pair) ris++;
   return ris;
 }
